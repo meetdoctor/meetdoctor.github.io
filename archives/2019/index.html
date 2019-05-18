@@ -118,18 +118,17 @@
     
 
     <div class="blog-post-block-padding">
-        <a href="/2019/05/18/meetdoctor/">meetdoctor</a>
+        <a href="/2019/05/18/mysql十大报错/">mysql十大报错</a>
         <section>
             
                 
-                   张doctors是个傻子
-
+                1.floor()select  from test where id=1 and (select 1 from (select count(),concat(user(),floor(rand(0)*2))x from information_schema.
                 ...
             
         </section>
         <footer>
         
-            <time datetime="2019-05-18T08:55:54.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
+            <time datetime="2019-05-18T11:27:17.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
         
         
         
@@ -152,18 +151,21 @@
     
 
     <div class="blog-post-block-padding">
-        <a href="/2019/05/18/Hello-World-0/">Hello World</a>
+        <a href="/2019/05/18/iptables转发端口/">iptables转发端口</a>
         <section>
             
                 
-                死肥宅的日常   一包蓝楼，一杯龙井。
-
+                1.本机端口转发
+把发往本机80端口的数据重定向到8080端口
+iptables -t nat -A PREROUTING -p tcp –dport 80 -j REDIRECT –to-ports 8080
+2.远程端口转发
+把访问8.8.8.8:8080
                 ...
             
         </section>
         <footer>
         
-            <time datetime="2019-05-18T08:55:54.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
+            <time datetime="2019-05-18T11:16:43.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
         
         
         
@@ -173,6 +175,153 @@
             
               <a href="/categories/生活/" itemprop="url" rel="index">
                 生活
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2019/05/18/rar-exe-压缩命令/">rar.exe 压缩命令</a>
+        <section>
+            
+                
+                例:把D:\webs\目录下的所有东西打包为1.rar放到D:\webs\目录下,以便下载
+rar.exe a -k -r -s -m1 D:\webs\1.rar D:\webs
+常用压缩命令
+rar.exe a -r -m3 D:\webs\1.rar D
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2019-05-18T11:15:18.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/生活/" itemprop="url" rel="index">
+                生活
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2019/05/18/Mssql开启与关闭xp-cmdshell/">Mssql开启与关闭xp_cmdshell</a>
+        <section>
+            
+                
+                开启 
+EXEC sp_configure ‘show advanced options’, 1;RECONFIGURE;EXEC sp_configure ‘xp_cmdshell’, 1;RECONFIGURE;
+关闭一样.只是将上面的后面的那个”1”改成
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2019-05-18T11:13:57.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/生活/" itemprop="url" rel="index">
+                生活
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2019/05/18/sqlmap命令/">sqlmap命令</a>
+        <section>
+            
+                
+                一共有11种常见SQLmap使用方法：
+一、SQLMAP用于Access数据库注入
+(1) 猜解是否能注入win: python sqlmap.py -u “http://www.xxx.com/en/CompHonorBig.asp?id=7“Linux :
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2019-05-18T11:11:47.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/技术/" itemprop="url" rel="index">
+                技术
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2019/05/18/nmap命令/">nmap命令</a>
+        <section>
+            
+                
+                一、主机发现
+
+全面扫描/综合扫描nmap -A 192.168.1.103
+
+Ping扫描nmap -sP 192.168.1.1/24
+
+免Ping扫描，穿透防火墙，避免被防火墙发现nmap -P0 192.168.1.103
+
+TCP SYN Ping 
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2019-05-18T11:08:53.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/技术/" itemprop="url" rel="index">
+                技术
               </a>
             
           </span>
@@ -220,6 +369,74 @@ bi
 </article>
 
 
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2019/05/18/meetdoctor/">meetdoctor</a>
+        <section>
+            
+                
+                   张doctors是个傻子
+
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2019-05-18T08:51:54.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/生活/" itemprop="url" rel="index">
+                生活
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
+        <a href="/2019/05/17/Hello-World-0/">Hello World</a>
+        <section>
+            
+                
+                死肥宅的日常   一包蓝楼，一杯龙井。
+
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2019-05-17T08:55:54.000Z"><i class="fa fa-clock-o"></i>2019-05-17</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/生活/" itemprop="url" rel="index">
+                生活
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
 
   
     <nav id="pagination" class="blog-pagination">
@@ -244,7 +461,7 @@ bi
             </div>
             <div class="blog-sidebar-count blog-sidebar-padding">
                 <div class="blog-sidebar-count-left">
-                    <p class="blog-sidebar-count-p">3</p>
+                    <p class="blog-sidebar-count-p">9</p>
                     <span class="blog-sidebar-count-span">文章</span>
                 </div>
                 <div class="blog-sidebar-count-right">
@@ -269,13 +486,13 @@ bi
                   
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/技术/">技术</a>
-                          <span class="badge badge-default badge-pill">1</span>
+                          <a href="/categories/生活/">生活</a>
+                          <span class="badge badge-default badge-pill">6</span>
                       </li>
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/生活/">生活</a>
-                          <span class="badge badge-default badge-pill">2</span>
+                          <a href="/categories/技术/">技术</a>
+                          <span class="badge badge-default badge-pill">3</span>
                       </li>
                     
                   
@@ -286,9 +503,9 @@ bi
                 <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
                   
                     
-                      <li><a href="/tags/技术/" class="tag-could" data-toggle="tooltip" data-placement="top" title="技术">技术</a></li>
-                    
                       <li><a href="/tags/闲聊/" class="tag-could" data-toggle="tooltip" data-placement="top" title="闲聊">闲聊</a></li>
+                    
+                      <li><a href="/tags/技术/" class="tag-could" data-toggle="tooltip" data-placement="top" title="技术">技术</a></li>
                     
                       <li><a href="/tags/吐槽/" class="tag-could" data-toggle="tooltip" data-placement="top" title="吐槽">吐槽</a></li>
                     
