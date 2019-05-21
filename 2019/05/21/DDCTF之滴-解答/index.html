@@ -20,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>网络安全面试题乔巴Doctor</title>
+  <title>DDCTF之滴~解答乔巴Doctor</title>
   <link rel="shortcut icon" href>
   
     
@@ -107,8 +107,8 @@
             </header>
                 
 <header class="blog-post-page-title">
-    <h4>网络安全面试题</h4>
-    <time datetime="2019-05-18T16:09:09.000Z"><i class="fa fa-clock-o"></i>2019-05-19</time>
+    <h4>DDCTF之滴~解答</h4>
+    <time datetime="2019-05-21T04:33:53.000Z"><i class="fa fa-clock-o"></i>2019-05-21</time>
     
     
     
@@ -126,16 +126,20 @@
     <article class="blog-post-block blog-post-page-content">
         <section>
             
-                <center><strong>面试题大全</strong></center>
-
-<h2 id="看完这些面试过程中面对技术部门的问题毫无压力"><a href="#看完这些面试过程中面对技术部门的问题毫无压力" class="headerlink" title="看完这些面试过程中面对技术部门的问题毫无压力"></a>看完这些面试过程中面对技术部门的问题毫无压力</h2><p><br><br>
-
-	<div class="row">
-    <embed src="./渗透测试工程师面试题大全.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-<br><br></p>
+                <h1 id="滴滴滴："><a href="#滴滴滴：" class="headerlink" title="滴滴滴："></a>滴滴滴：<img src="./index.jpg" alt="图片"></h1><p><a href="http://117.51.150.246/index.php?jpg=TmpZMlF6WXhOamN5UlRaQk56QTJOdz09" target="_blank" rel="noopener">ctf地址</a></p>
+<h2 id="DDCTF之滴-解题"><a href="#DDCTF之滴-解题" class="headerlink" title="DDCTF之滴~解题"></a>DDCTF之滴~解题</h2><h3 id="第一个滴-就让人很难受-打开页面："><a href="#第一个滴-就让人很难受-打开页面：" class="headerlink" title="第一个滴~就让人很难受,打开页面："></a>第一个滴~就让人很难受,打开页面：</h3><p><img src="./DDCTF之滴~1.png" alt="图片"></p>
+<h2 id="发现URL地址上有一串类似于base64的密文，解码一下："><a href="#发现URL地址上有一串类似于base64的密文，解码一下：" class="headerlink" title="发现URL地址上有一串类似于base64的密文，解码一下："></a>发现URL地址上有一串类似于base64的密文，解码一下：</h2><p><img src="./DDCTF之滴~2.png" alt="图片"></p>
+<h2 id="发现还是base64，继续："><a href="#发现还是base64，继续：" class="headerlink" title="发现还是base64，继续："></a>发现还是base64，继续：</h2><p><img src="./DDCTF之滴~3.png" alt="图片"></p>
+<h2 id="貌似是16进制转ASCII码："><a href="#貌似是16进制转ASCII码：" class="headerlink" title="貌似是16进制转ASCII码："></a>貌似是16进制转ASCII码：</h2><p><img src="./DDCTF之滴~4.png" alt="图片"></p>
+<h2 id="再查看一下源码发现："><a href="#再查看一下源码发现：" class="headerlink" title="再查看一下源码发现："></a>再查看一下源码发现：</h2><p><img src="./DDCTF之滴~5.png" alt="图片"></p>
+<h2 id="这样好像可以读取index-php的源码，构造一下，把index-php转为16进制，在进行两次base64加密："><a href="#这样好像可以读取index-php的源码，构造一下，把index-php转为16进制，在进行两次base64加密：" class="headerlink" title="这样好像可以读取index.php的源码，构造一下，把index.php转为16进制，在进行两次base64加密："></a>这样好像可以读取index.php的源码，构造一下，把index.php转为16进制，在进行两次base64加密：</h2><p><img src="./DDCTF之滴~6.png" alt="图片"></p>
+<h2 id="加到jpg-后面，查看源码，得到index-php的base64加密的源码："><a href="#加到jpg-后面，查看源码，得到index-php的base64加密的源码：" class="headerlink" title="加到jpg=后面，查看源码，得到index.php的base64加密的源码："></a>加到jpg=后面，查看源码，得到index.php的base64加密的源码：</h2><p><img src="./DDCTF之滴~7.png" alt="图片"></p>
+<h2 id="把base64源码解密得到源代码："><a href="#把base64源码解密得到源代码：" class="headerlink" title="把base64源码解密得到源代码："></a>把base64源码解密得到源代码：</h2><p><img src="./DDCTF之滴~8.png" alt="图片"></p>
+<h2 id="一开始一直以为是绕过config拿到config-php源码才能做下去，之后才发现想多了。下面有个注释是问我们能不能找到flag的文件。打开源码中的博客页面。"><a href="#一开始一直以为是绕过config拿到config-php源码才能做下去，之后才发现想多了。下面有个注释是问我们能不能找到flag的文件。打开源码中的博客页面。" class="headerlink" title="一开始一直以为是绕过config拿到config.php源码才能做下去，之后才发现想多了。下面有个注释是问我们能不能找到flag的文件。打开源码中的博客页面。"></a>一开始一直以为是绕过config拿到config.php源码才能做下去，之后才发现想多了。下面有个注释是问我们能不能找到flag的文件。打开源码中的博客页面。</h2><p><img src="./DDCTF之滴~9.png" alt="图片"></p>
+<h2 id="打开vim异常退出swp这个文章（完全想不到）："><a href="#打开vim异常退出swp这个文章（完全想不到）：" class="headerlink" title="打开vim异常退出swp这个文章（完全想不到）："></a>打开vim异常退出swp这个文章（完全想不到）：</h2><p><img src="./DDCTF之滴~10.png" alt="图片"></p>
+<h2 id="其实就是这个swp文件（坑-），试一试发现有这个文件同理进行16进制转ASCII码，进行两次base64编码，当作参数传入，得到（ps-不要-是practice-txt-swp）："><a href="#其实就是这个swp文件（坑-），试一试发现有这个文件同理进行16进制转ASCII码，进行两次base64编码，当作参数传入，得到（ps-不要-是practice-txt-swp）：" class="headerlink" title="其实就是这个swp文件（坑~~），试一试发现有这个文件同理进行16进制转ASCII码，进行两次base64编码，当作参数传入，得到（ps:不要.,是practice.txt.swp）："></a>其实就是这个swp文件（坑~~），试一试发现有这个文件同理进行16进制转ASCII码，进行两次base64编码，当作参数传入，得到（ps:不要.,是practice.txt.swp）：</h2><p><img src="./DDCTF之滴~11.png" alt="图片"></p>
+<h2 id="进行解码得到内容：f1ag-ddctf-php-好了，毋庸置疑，flag在这个文件里面。（注意，config会被转为！所以用f1agconfigddctf-php转）同理进行操作读取到源码："><a href="#进行解码得到内容：f1ag-ddctf-php-好了，毋庸置疑，flag在这个文件里面。（注意，config会被转为！所以用f1agconfigddctf-php转）同理进行操作读取到源码：" class="headerlink" title="进行解码得到内容：f1ag!ddctf.php,好了，毋庸置疑，flag在这个文件里面。（注意，config会被转为！所以用f1agconfigddctf.php转）同理进行操作读取到源码："></a>进行解码得到内容：f1ag!ddctf.php,好了，毋庸置疑，flag在这个文件里面。（注意，config会被转为！所以用f1agconfigddctf.php转）同理进行操作读取到源码：</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span>(<span class="string">'config.php'</span>);</span><br><span class="line">$k = <span class="string">'hello'</span>;</span><br><span class="line">extract($_GET);</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($uid))</span><br><span class="line">&#123;</span><br><span class="line">    $content=trim(file_get_contents($k));</span><br><span class="line">    <span class="keyword">if</span>($uid==$content)</span><br><span class="line">    &#123;</span><br><span class="line">		<span class="keyword">echo</span> $flag;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">echo</span><span class="string">'hello'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码审计一下。进入f1ag-ddctf-php页面传递参数-uid-就能得到flag："><a href="#代码审计一下。进入f1ag-ddctf-php页面传递参数-uid-就能得到flag：" class="headerlink" title="代码审计一下。进入f1ag!ddctf.php页面传递参数?uid=就能得到flag："></a>代码审计一下。进入f1ag!ddctf.php页面传递参数?uid=就能得到flag：</h2><p><img src="./DDCTF之滴~12.png" alt="图片"></p>
 
             
         </section>
@@ -143,7 +147,7 @@
         
 			
 				
-			<a href="/tags/技术/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">技术</a>
+			<a href="/tags/ctf/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">ctf</a>
 				
 			
 		
@@ -153,12 +157,10 @@
     	
     	
 		
-			<a href="/2019/05/19/2017安徽省大学生网络攻防竞赛CTF题解/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="ctf练手题目">上一篇</a>
-		
 
 		
 		
-			<a href="/2019/05/18/windows常用命令/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="windows常用命令">下一篇</a>
+			<a href="/2019/05/19/过D盾一句话/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="过D盾一句话">下一篇</a>
 		
 
         <div style="clear: both;"></div>
@@ -261,7 +263,7 @@
                 return out;
             }
             // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://meetdoctor.github.io/2019/05/19/渗透测试工程师面试题大全/")}).hide();
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://meetdoctor.github.io/2019/05/21/DDCTF之滴-解答/")}).hide();
             var canvas=qrcode.find('canvas').get(0);
             $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
         </script>

@@ -120,6 +120,45 @@
     
 
     <div class="blog-post-block-padding">
+        <a href="/2019/05/21/DDCTF之滴-解答/">DDCTF之滴~解答</a>
+        <section>
+            
+                
+                滴滴滴：ctf地址
+DDCTF之滴~解题第一个滴~就让人很难受,打开页面：
+发现URL地址上有一串类似于base64的密文，解码一下：
+发现还是base64，继续：
+貌似是16进制转ASCII码：
+再查看一下源码发现：
+这样好像可以读取index.php的源码
+                ...
+            
+        </section>
+        <footer>
+        
+            <time datetime="2019-05-21T04:33:53.000Z"><i class="fa fa-clock-o"></i>2019-05-21</time>
+        
+        
+        
+        
+        
+          <span><i class="fa fa-folder-o"></i>
+            
+              <a href="/categories/技术/" itemprop="url" rel="index">
+                技术
+              </a>
+            
+          </span>
+        
+        </footer>
+    </div>
+</article>
+
+
+<article class="blog-post-block">
+    
+
+    <div class="blog-post-block-padding">
         <a href="/2019/05/19/过D盾一句话/">过D盾一句话</a>
         <section>
             
@@ -277,13 +316,13 @@
     
 
     <div class="blog-post-block-padding">
-        <a href="/2019/05/19/渗透测试工程师面试题大全/">网络安全面试题</a>
+        <a href="/2019/05/19/2017安徽省大学生网络攻防竞赛CTF题解/">ctf练手题目</a>
         <section>
             
                 
-                面试题大全
+                ctf练手题目
 
-看完这些面试过程中面对技术部门的问题毫无压力
+这些ctf很适合新手练手，希望大家喜欢。
 
 	
     
@@ -320,14 +359,13 @@
     
 
     <div class="blog-post-block-padding">
-        <a href="/2019/05/19/2017安徽省大学生网络攻防竞赛CTF题解/">ctf练手题目</a>
+        <a href="/2019/05/19/渗透测试工程师面试题大全/">网络安全面试题</a>
         <section>
             
                 
-                ctf练手题目
+                面试题大全
 
-##这些ctf很适合新手练手，希望大家喜欢。
-
+看完这些面试过程中面对技术部门的问题毫无压力
 
 	
     
@@ -459,43 +497,6 @@
 </article>
 
 
-<article class="blog-post-block">
-    
-
-    <div class="blog-post-block-padding">
-        <a href="/2019/05/18/iptables转发端口/">iptables转发端口</a>
-        <section>
-            
-                
-                1.本机端口转发
-把发往本机80端口的数据重定向到8080端口
-iptables -t nat -A PREROUTING -p tcp –dport 80 -j REDIRECT –to-ports 8080
-2.远程端口转发
-把访问8.8.8.8:8080
-                ...
-            
-        </section>
-        <footer>
-        
-            <time datetime="2019-05-18T11:16:43.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
-        
-        
-        
-        
-        
-          <span><i class="fa fa-folder-o"></i>
-            
-              <a href="/categories/技术/" itemprop="url" rel="index">
-                技术
-              </a>
-            
-          </span>
-        
-        </footer>
-    </div>
-</article>
-
-
 
   
     <nav id="pagination" class="blog-pagination">
@@ -520,7 +521,7 @@ iptables -t nat -A PREROUTING -p tcp –dport 80 -j REDIRECT –to-ports 8080
             </div>
             <div class="blog-sidebar-count blog-sidebar-padding">
                 <div class="blog-sidebar-count-left">
-                    <p class="blog-sidebar-count-p">17</p>
+                    <p class="blog-sidebar-count-p">18</p>
                     <span class="blog-sidebar-count-span">文章</span>
                 </div>
                 <div class="blog-sidebar-count-right">
@@ -546,7 +547,7 @@ iptables -t nat -A PREROUTING -p tcp –dport 80 -j REDIRECT –to-ports 8080
                     
                       <li class="list-group-item justify-content-between">
                           <a href="/categories/技术/">技术</a>
-                          <span class="badge badge-default badge-pill">13</span>
+                          <span class="badge badge-default badge-pill">14</span>
                       </li>
                     
                       <li class="list-group-item justify-content-between">
@@ -572,29 +573,29 @@ iptables -t nat -A PREROUTING -p tcp –dport 80 -j REDIRECT –to-ports 8080
                 <ul class="blog-sidebar-tags-ul blog-sidebar-padding">
                   
                     
-                      <li><a href="/tags/sqlserver/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sqlserver">sqlserver</a></li>
-                    
                       <li><a href="/tags/ctf/" class="tag-could" data-toggle="tooltip" data-placement="top" title="ctf">ctf</a></li>
                     
                       <li><a href="/tags/闲聊/" class="tag-could" data-toggle="tooltip" data-placement="top" title="闲聊">闲聊</a></li>
                     
-                      <li><a href="/tags/技术/" class="tag-could" data-toggle="tooltip" data-placement="top" title="技术">技术</a></li>
-                    
                       <li><a href="/tags/cms/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cms">cms</a></li>
                     
-                      <li><a href="/tags/k先生/" class="tag-could" data-toggle="tooltip" data-placement="top" title="k先生">k先生</a></li>
+                      <li><a href="/tags/sqlserver/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sqlserver">sqlserver</a></li>
                     
                       <li><a href="/tags/吐槽/" class="tag-could" data-toggle="tooltip" data-placement="top" title="吐槽">吐槽</a></li>
                     
+                      <li><a href="/tags/技术/" class="tag-could" data-toggle="tooltip" data-placement="top" title="技术">技术</a></li>
+                    
                       <li><a href="/tags/mysql/" class="tag-could" data-toggle="tooltip" data-placement="top" title="mysql">mysql</a></li>
+                    
+                      <li><a href="/tags/k先生/" class="tag-could" data-toggle="tooltip" data-placement="top" title="k先生">k先生</a></li>
                     
                       <li><a href="/tags/cmd命令/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cmd命令">cmd命令</a></li>
                     
                       <li><a href="/tags/中华人民共和国网络安全法/" class="tag-could" data-toggle="tooltip" data-placement="top" title="中华人民共和国网络安全法">中华人民共和国网络安全法</a></li>
                     
-                      <li><a href="/tags/过狗/" class="tag-could" data-toggle="tooltip" data-placement="top" title="过狗">过狗</a></li>
-                    
                       <li><a href="/tags/一句话/" class="tag-could" data-toggle="tooltip" data-placement="top" title="一句话">一句话</a></li>
+                    
+                      <li><a href="/tags/过狗/" class="tag-could" data-toggle="tooltip" data-placement="top" title="过狗">过狗</a></li>
                     
                   
                 </ul>
