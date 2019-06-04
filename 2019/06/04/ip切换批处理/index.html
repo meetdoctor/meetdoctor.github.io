@@ -130,7 +130,7 @@
 
 
 
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近新工作环境有有很多内网，然后内网又不互通，手动改ip又贼烦，我的笔记本又没有小键盘，所以很烦，下班花了一会时间写了个批处理。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近我的新工作环境有很多内网，然后内网又不互通，手动改ip又贼烦，我的笔记本又没有小键盘，所以拉低了我工作效率，决定下班花时间写个批处理。</p>
 <p>很多人在公司是固定ip，回家后导致又要设置为dhcp自动获取，只需要把下面代码写成一个批处理就行。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@echo 自动获取ip地址</span><br><span class="line"></span><br><span class="line">netsh int ip <span class="keyword">set</span> address name="网卡名称" source=dhcp</span><br><span class="line"></span><br><span class="line">@echo 自动获取DNS服务器</span><br><span class="line"></span><br><span class="line">netsh int ip <span class="keyword">set</span> dns name="网卡名称" source=dhcp</span><br><span class="line"></span><br><span class="line">@echo 自动获取ip地址设置完毕</span><br></pre></td></tr></table></figure></p>
 <p>这个批处理是我有时候懒得去网络设置里面去设置，方便经常切换内网ip用的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">@echo 正在设置固定ip，请稍后.....</span><br><span class="line"></span><br><span class="line">@echo 请输入ip地址:</span><br><span class="line"></span><br><span class="line">    @<span class="keyword">set</span> /p ip=</span><br><span class="line"></span><br><span class="line">@echo 请输入子网掩码地址:</span><br><span class="line"></span><br><span class="line">	@<span class="keyword">set</span> /p mask=</span><br><span class="line"></span><br><span class="line">@echo 请输入网关:</span><br><span class="line">	</span><br><span class="line">	@<span class="keyword">set</span> /p gw=</span><br><span class="line"></span><br><span class="line">@echo 请输入首选DNS:</span><br><span class="line"></span><br><span class="line">	@<span class="keyword">set</span> /p DNS1=</span><br><span class="line">	</span><br><span class="line">@echo 请输入备选DNS:</span><br><span class="line">	@<span class="keyword">set</span> /p DNS2=</span><br><span class="line"></span><br><span class="line">netsh interface ip <span class="keyword">set</span> address "网卡名称" static %ip% %mask% %gw% 1</span><br><span class="line"></span><br><span class="line">netsh interface ip <span class="keyword">set</span> dns "网卡名称" source=static addr=%DNS1%</span><br><span class="line"></span><br><span class="line">netsh interface ip add dns "网卡名称" addr=%DNS2%</span><br><span class="line"></span><br><span class="line">@echo ip:%ip%</span><br><span class="line">@echo mask:%mask%</span><br><span class="line">@echo gw:%gw%</span><br><span class="line">@echo DNS1:%DNS1%</span><br><span class="line">@echo DNS2:%DNS2%</span><br><span class="line"></span><br><span class="line">@echo ip地址设置完毕</span><br><span class="line"></span><br><span class="line">@pause</span><br><span class="line">ipconfig</span><br><span class="line">@pause</span><br></pre></td></tr></table></figure></p>
 <p>如果你是在自己公司有固定ip，每次去公司要手动设置的花可以z把ip直接卸载p批处理里面。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@echo 正在设置固定ip，请稍后........</span><br><span class="line"></span><br><span class="line">netsh interface ip <span class="keyword">set</span> address "网卡名称" static 192.168.1.1 255.255.255.0 192.168.1.254 1</span><br><span class="line"></span><br><span class="line">netsh interface ip <span class="keyword">set</span> dns "网卡名称" source=static addr=114.114.114.114</span><br><span class="line"></span><br><span class="line">netsh interface ip add dns "网卡名称" addr=8.8.8.8</span><br><span class="line"></span><br><span class="line">@echo ip设置完成</span><br><span class="line"></span><br><span class="line">@pause</span><br><span class="line"></span><br><span class="line">ipconfig</span><br><span class="line">@pause</span><br></pre></td></tr></table></figure></p>
@@ -375,15 +375,15 @@
                     
                       <li><a href="/tags/闲聊/" class="tag-could" data-toggle="tooltip" data-placement="top" title="闲聊">闲聊</a></li>
                     
-                      <li><a href="/tags/sqlserver/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sqlserver">sqlserver</a></li>
+                      <li><a href="/tags/技术/" class="tag-could" data-toggle="tooltip" data-placement="top" title="技术">技术</a></li>
                     
                       <li><a href="/tags/cms/" class="tag-could" data-toggle="tooltip" data-placement="top" title="cms">cms</a></li>
                     
-                      <li><a href="/tags/技术/" class="tag-could" data-toggle="tooltip" data-placement="top" title="技术">技术</a></li>
-                    
-                      <li><a href="/tags/批处理/" class="tag-could" data-toggle="tooltip" data-placement="top" title="批处理">批处理</a></li>
+                      <li><a href="/tags/sqlserver/" class="tag-could" data-toggle="tooltip" data-placement="top" title="sqlserver">sqlserver</a></li>
                     
                       <li><a href="/tags/k先生/" class="tag-could" data-toggle="tooltip" data-placement="top" title="k先生">k先生</a></li>
+                    
+                      <li><a href="/tags/批处理/" class="tag-could" data-toggle="tooltip" data-placement="top" title="批处理">批处理</a></li>
                     
                       <li><a href="/tags/吐槽/" class="tag-could" data-toggle="tooltip" data-placement="top" title="吐槽">吐槽</a></li>
                     
@@ -399,9 +399,9 @@
                     
                       <li><a href="/tags/生活/" class="tag-could" data-toggle="tooltip" data-placement="top" title="生活">生活</a></li>
                     
-                      <li><a href="/tags/过狗/" class="tag-could" data-toggle="tooltip" data-placement="top" title="过狗">过狗</a></li>
-                    
                       <li><a href="/tags/提权/" class="tag-could" data-toggle="tooltip" data-placement="top" title="提权">提权</a></li>
+                    
+                      <li><a href="/tags/过狗/" class="tag-could" data-toggle="tooltip" data-placement="top" title="过狗">过狗</a></li>
                     
                       <li><a href="/tags/运维应急/" class="tag-could" data-toggle="tooltip" data-placement="top" title="运维应急">运维应急</a></li>
                     
