@@ -20,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>rar.exe 压缩命令乔巴Doctor</title>
+  <title>Excel处理脚本乔巴Doctor</title>
   <link rel="shortcut icon" href>
   
     
@@ -107,8 +107,8 @@
             </header>
                 
 <header class="blog-post-page-title">
-    <h4>rar.exe 压缩命令</h4>
-    <time datetime="2019-05-18T11:15:18.000Z"><i class="fa fa-clock-o"></i>2019-05-18</time>
+    <h4>Excel处理脚本</h4>
+    <time datetime="2019-06-07T15:25:25.000Z"><i class="fa fa-clock-o"></i>2019-06-07</time>
     
     
     
@@ -126,17 +126,23 @@
     <article class="blog-post-block blog-post-page-content">
         <section>
             
-                <p>例:把D:\webs\目录下的所有东西打包为1.rar放到D:\webs\目录下,以便下载</p>
-<p>rar.exe a -k -r -s -m1 D:\webs\1.rar D:\webs</p>
-<p>常用压缩命令</p>
-<p>rar.exe a -r -m3 D:\webs\1.rar D:\webs</p>
-<p>参数说明:</p>
-<p>a 添加文件到压缩文件中</p>
-<p>-k 锁定压缩文件</p>
-<p>-s产生固体存档,这样可以增大压缩比</p>
-<p>-r包括子目录</p>
-<p>-m1 设置压缩比</p>
-<p>-m0 存储 添加到压缩文件时不压缩文件。<br>-m1 最快 使用最快方式(低压缩)<br>-m2 较快 使用快速压缩方式<br>-m3 标准 使用标准(默认)压缩方式<br>-m4 较好 使用较好压缩方式(较好压缩，但是慢)<br>-m5 最好 使用最大压缩方式(最好的压缩，但是最慢)</p>
+                <p><center><strong>Excel处理小工具</strong></center></p>
+<h1 id="由于最近处理表格太烦了，我的笔记本屏幕太小，每天工作很多表格重复的处理我自己很容易把眼睛搞花，所以找朋友帮忙开发了一个脚本，由于时间紧，功能一般，只有合并，筛选，取出功能，我就给我朋友写了这个要求文档，他下午抽了一点时间帮我写出来了。"><a href="#由于最近处理表格太烦了，我的笔记本屏幕太小，每天工作很多表格重复的处理我自己很容易把眼睛搞花，所以找朋友帮忙开发了一个脚本，由于时间紧，功能一般，只有合并，筛选，取出功能，我就给我朋友写了这个要求文档，他下午抽了一点时间帮我写出来了。" class="headerlink" title="由于最近处理表格太烦了，我的笔记本屏幕太小，每天工作很多表格重复的处理我自己很容易把眼睛搞花，所以找朋友帮忙开发了一个脚本，由于时间紧，功能一般，只有合并，筛选，取出功能，我就给我朋友写了这个要求文档，他下午抽了一点时间帮我写出来了。"></a>由于最近处理表格太烦了，我的笔记本屏幕太小，每天工作很多表格重复的处理我自己很容易把眼睛搞花，所以找朋友帮忙开发了一个脚本，由于时间紧，功能一般，只有合并，筛选，取出功能，我就给我朋友写了这个要求文档，他下午抽了一点时间帮我写出来了。</h1><p>脚本需求<br><em>将该目录下的表格合并生成一个新的表格 生成一个新的表格在该目录,合并完成后做一个交互，添加交互，去重功能</em><br><em>筛选功能：能够指定取出整合后表格里面的某列含有制定字符的行数（例如我将表格合并，然后我要赛选B列里面含有“哈哈”的行数）希望目标列与筛选值做成变量，从键盘读取，并导出新表格。</em></p>
+<p><em>第一步先合并表格</em><br><em>表格合并完成……</em><br><em>合成后的表格为hcx.csv。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//合成完先生成一个合成后的表格</em></p>
+<p><em>请选择是否需要删除列      </em><br><em>1是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2否</em><br><em>请输入需要删除的列：<strong>__</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//设置一个变量，//这里就不要导出新的表格了，直接进入下一个判断</em></p>
+<p><em>请选择是否筛选：</em><br><em>
+</em>1是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2否*</p>
+<p><em>请输入需要筛选的列<strong>_</strong>：</em><br><em>请输入筛选字段：<strong>__</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//字段最好做个模糊匹配   例如字段是“我爱你”  我输入字段“爱你”也能筛选出来 </em><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>然后取出我需要的字段的行。</em><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>//不知道这里能否做个循环，重复交互是否需要筛选，这样就可以多次筛选其他列</em><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>直到满足需求然后选着否跳出循环</em></p>
+<p><em>筛选完成……                   </em><br><em>赛选后的表格为sx.csv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//筛选完成后自动生成一个筛选过的表格        </em><br>*<em>
+</em>请选择是否去重：<strong>_</strong>*</p>
+<p><em>1是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2否</em></p>
+<p><em>请输入需要去重的列：</em><br><em>去重完成……</em><br><em>去重后的表格为qc.csv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//生成一个去重过的表格。</em></p>
+<p><em>程序结束。最主要的是交互</em></p>
+<p>——————————————————————————————————————————————————————————————————————————————————————————</p>
+<ul>
+<li>EXCLE脚本: <a href="http://weibo.com/ihubo" target="_blank" rel="noopener">下载连接</a></li>
+<li>脚本说明: <a href="http://twitter.com/ihubo" target="_blank" rel="noopener">下载连接</a><br><strong>最后在这里感谢小童的帮忙</strong></li>
+</ul>
 
             
         </section>
@@ -144,7 +150,7 @@
         
 			
 				
-			<a href="/tags/技术/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">技术</a>
+			<a href="/tags/py小脚本/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">py小脚本</a>
 				
 			
 		
@@ -154,12 +160,12 @@
     	
     	
 		
-			<a href="/2019/05/18/iptables转发端口/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="iptables转发端口">上一篇</a>
+			<a href="/2029/01/01/中华人民共和国网络安全法/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="中华人民共和国网络安全法">上一篇</a>
 		
 
 		
 		
-			<a href="/2019/05/18/Mssql开启与关闭xp-cmdshell/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="Mssql开启与关闭xp_cmdshell">下一篇</a>
+			<a href="/2019/06/04/ip切换批处理/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="ip切换批处理">下一篇</a>
 		
 
         <div style="clear: both;"></div>
@@ -262,7 +268,7 @@
                 return out;
             }
             // 生成
-            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://meetdoctor.github.io/2019/05/18/rar-exe-压缩命令/")}).hide();
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://meetdoctor.github.io/2019/06/07/Excel处理脚本/")}).hide();
             var canvas=qrcode.find('canvas').get(0);
             $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
         </script>
